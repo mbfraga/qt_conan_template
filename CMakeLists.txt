@@ -19,5 +19,6 @@ include(cmake/Conan.cmake)
 run_conan()
 
 qt_plugin_path()
+configure_file(qt.conf.in qt.conf)
 
 add_subdirectory(src)
