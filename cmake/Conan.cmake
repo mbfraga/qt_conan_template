@@ -43,6 +43,15 @@ macro(run_conan)
     BASIC_SETUP
     CMAKE_TARGETS # individual targets to link to
     BUILD
-    missing)
+    missing
+
+    CONFIGURATION_TYPES "Release;Debug;RelWithDebInfo"
+
+    GENERATORS qt
+    IMPORTS "bin, *.dll -> ./bin"
+    IMPORTS "lib, *.dylib* -> ./bin"
+
+    )
+
 
 endmacro()
