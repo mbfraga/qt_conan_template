@@ -45,12 +45,11 @@ macro(run_conan)
     BUILD
     missing
 
-    CONFIGURATION_TYPES "Release;Debug;RelWithDebInfo"
-
     GENERATORS qt
-    IMPORTS "bin, *.dll -> ./bin"
-    IMPORTS "lib, *.dylib* -> ./bin"
-
+    IMPORTS "bin, *.dll -> ${CMAKE_CURRENT_BINARY_DIR}/src/bin"
+    IMPORTS "bin, *.exe -> ${CMAKE_CURRENT_BINARY_DIR}/src/bin"
+    IMPORTS "lib, *.dylib* -> ${CMAKE_CURRENT_BINARY_DIR}/src/bin"
+    IMPORTS "plugins, * -> ${CMAKE_CURRENT_BINARY_DIR}/src/bin/plugins"
     )
 
 
